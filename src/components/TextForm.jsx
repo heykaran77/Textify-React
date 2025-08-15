@@ -47,7 +47,7 @@ const TextForm = (props) => {
   const handleCaps = () => {
     let newText = text
       .trim()
-      .split(/[ ]+/)
+      .split(/\s+/)
       .map((word) => word.toLowerCase())
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
