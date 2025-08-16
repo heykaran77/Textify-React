@@ -34,7 +34,7 @@ const App = () => {
   };
   return (
     <div>
-      <Navbar title="Textify" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="Textify" mode={mode} />
       <Alert alert={alert} />
       <div className="container my-3">
         {/* <Routes>
@@ -45,6 +45,7 @@ const App = () => {
           heading="Enter text to Analyze"
           mode={mode}
           showAlert={showAlert}
+          toggleMode={toggleMode}
         />
         {/* }
           /> */}

@@ -64,7 +64,23 @@ const TextForm = (props) => {
           }`}
       </style>
       <div className={`my-4 text-${props.mode === "light" ? "dark" : "light"}`}>
-        <h3> {props.heading}</h3>
+        <div className="container d-flex justify-content-between align-items-center">
+          <h3> {props.heading}</h3>
+          <div className="form-check form-switch">
+            {props.mode === "light" ? (
+              <i className="ri-moon-fill"></i>
+            ) : (
+              <i className="ri-sun-line"></i>
+            )}
+            <input
+              className="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="switchCheckDefault"
+              onClick={props.toggleMode}
+            />
+          </div>
+        </div>
         <textarea
           className="form-control"
           id="textBox01"
@@ -78,32 +94,44 @@ const TextForm = (props) => {
           onChange={handleChange}></textarea>
       </div>
       <button
-        className={`btn btn-${props.mode === "light" ? "dark" : "light"} me-4`}
+        className={`btn btn-${
+          props.mode === "light" ? "dark" : "light"
+        } me-4 my-2`}
         onClick={handleUppercase}>
         To Uppercase
       </button>
       <button
-        className={`btn btn-${props.mode === "light" ? "dark" : "light"} me-4`}
+        className={`btn btn-${
+          props.mode === "light" ? "dark" : "light"
+        } me-4 my-2`}
         onClick={handleLowercase}>
         To Lowercase
       </button>
       <button
-        className={`btn btn-${props.mode === "light" ? "dark" : "light"} me-4`}
+        className={`btn btn-${
+          props.mode === "light" ? "dark" : "light"
+        } me-4 my-2`}
         onClick={handleCaps}>
         Capitalize
       </button>
       <button
-        className={`btn btn-${props.mode === "light" ? "dark" : "light"} me-4`}
+        className={`btn btn-${
+          props.mode === "light" ? "dark" : "light"
+        } me-4 my-2`}
         onClick={handleClear}>
         Clear
       </button>
       <button
-        className={`btn btn-${props.mode === "light" ? "dark" : "light"} me-4`}
+        className={`btn btn-${
+          props.mode === "light" ? "dark" : "light"
+        } me-4 my-2`}
         onClick={handleCopy}>
         Copy Text
       </button>
       <button
-        className={`btn btn-${props.mode === "light" ? "dark" : "light"} me-4`}
+        className={`btn btn-${
+          props.mode === "light" ? "dark" : "light"
+        } me-4 my-2`}
         onClick={handleExtraSpace}>
         Remove Extra Spaces
       </button>
