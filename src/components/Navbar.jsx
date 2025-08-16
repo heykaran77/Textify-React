@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = (prop) => {
   return (
@@ -9,9 +9,9 @@ const Navbar = (prop) => {
         className="navbar navbar-expand-lg bg-body-tertiary"
         data-bs-theme={`${prop.mode}`}>
         <div className="container-fluid">
-          <a
+          <Link
             className="navbar-brand"
-            href="#"
+            to="/"
             onClick={() => {
               {
                 document.title = "Textify - Home";
@@ -20,7 +20,7 @@ const Navbar = (prop) => {
             <b>
               <i>{prop.title}</i>
             </b>
-          </a>
+          </Link>
           {/* <Link
             className="navbar-brand"
             to="/"
@@ -46,19 +46,19 @@ const Navbar = (prop) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link active"
                   aria-current="page"
-                  href="#"
+                  to="/"
                   onClick={() => {
                     {
                       document.title = "Textify - Home";
                     }
                   }}>
                   Home
-                </a>
+                </Link>
               </li>
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link
                   className="nav-link"
                   aria-current="page"
@@ -70,7 +70,7 @@ const Navbar = (prop) => {
                   }}>
                   About
                 </Link>
-              </li> */}
+              </li>
             </ul>
           </div>
 

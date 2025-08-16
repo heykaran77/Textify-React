@@ -1,33 +1,30 @@
 import React, { useState } from "react";
 
-const About = () => {
-  const [btnToggle, setbtnToggle] = useState("Enable Dark Mode");
-  const [toggleMode, settoggleMode] = useState({
-    color: "#0c0c0c",
-    backgroundColor: "#ffffffff",
-    border: "2px solid #0c0c0c",
-  });
-
-  const handleToggle = () => {
-    if (toggleMode.color === "#0c0c0c") {
-      settoggleMode({
-        color: "#fff",
-        backgroundColor: "#0c0c0c",
-        border: "2px solid #ff9100ff",
-      });
-      setbtnToggle("Enable Light Mode");
-    } else {
-      settoggleMode({
-        color: "#0c0c0c",
-        backgroundColor: "#ffffffff",
-        border: "2px solid #0c0c0c",
-      });
-      setbtnToggle("Enable Dark Mode");
-    }
+const About = (props) => {
+  let myStyle = {
+    color: props.mode === "light" ? "#002157" : "#0c0c0c",
+    backgroundColor: props.mode === "light" ? "#fff" : "#c2c2c2ff",
   };
   return (
-    <div className="container">
-      <h2 className="my-3">About Us</h2>
+    <div
+      className={`container text-${props.mode === "light" ? "dark" : "light"}`}>
+      <div className=" d-flex justify-content-between align-items-center">
+        <h2 className="my-3">About Us</h2>
+        <div className="form-check form-switch">
+          {props.mode === "light" ? (
+            <i className="ri-moon-fill"></i>
+          ) : (
+            <i className="ri-sun-fill"></i>
+          )}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            role="switch"
+            id="switchCheckDefault"
+            onClick={props.toggleMode}
+          />
+        </div>
+      </div>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header">
@@ -38,24 +35,21 @@ const About = () => {
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
-              style={toggleMode}>
-              Accordion Item #1
+              style={myStyle}>
+              <strong>What is Textify?</strong>
             </button>
           </h2>
           <div
             id="collapseOne"
             className="accordion-collapse collapse show"
             data-bs-parent="#accordionExample"
-            style={toggleMode}>
+            style={myStyle}>
             <div className="accordion-body">
-              <strong>This is the first item’s accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It’s also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Textify is a simple yet powerful text transformation tool built
+              with React. Whether you want to convert text to uppercase,
+              lowercase, proper case, or clean up unwanted spaces, Textify makes
+              it easy and instant. No need for complex editors — just paste your
+              text, click a button, and get the result.
             </div>
           </div>
         </div>
@@ -68,24 +62,24 @@ const About = () => {
               data-bs-target="#collapseTwo"
               aria-expanded="false"
               aria-controls="collapseTwo"
-              style={toggleMode}>
-              Accordion Item #2
+              style={myStyle}>
+              <strong>Features</strong>
             </button>
           </h2>
           <div
             id="collapseTwo"
             className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
-            style={toggleMode}>
+            style={myStyle}>
             <div className="accordion-body">
-              <strong>This is the second item’s accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It’s also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <i>Uppercase & Lowercase Conversion</i> – Instantly change text
+              case. <br />
+              <i>Capitalization Tool</i> – Convert sentences or words into{" "}
+              proper case. <br />
+              <i>Copy to Clipboard</i> – Quickly copy transformed text with a
+              single click. <br /> <i>Clear Text</i> – Start fresh anytime with
+              the clear button. <br /> <i>Remove Extra Spaces</i> – Clean messy
+              formatting instantly.
             </div>
           </div>
         </div>
@@ -98,24 +92,22 @@ const About = () => {
               data-bs-target="#collapseThree"
               aria-expanded="false"
               aria-controls="collapseThree"
-              style={toggleMode}>
-              Accordion Item #3
+              style={myStyle}>
+              <strong>Why Use Textify?</strong>
             </button>
           </h2>
           <div
             id="collapseThree"
             className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
-            style={toggleMode}>
+            style={myStyle}>
             <div className="accordion-body">
-              <strong>This is the third item’s accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It’s also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Textify saves time for students, content creators, and developers
+              who frequently deal with text formatting. It works directly in
+              your browser, requires no downloads, and delivers results
+              instantly. Whether you're preparing social media captions,
+              cleaning up code comments, or formatting documents, Textify is
+              your quick solution.
             </div>
           </div>
         </div>

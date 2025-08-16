@@ -8,7 +8,11 @@ const Alert = (props) => {
   };
   return (
     <div>
-      <div className="container my-2">
+      <div
+        className="container my-2"
+        style={{
+          height: "50px",
+        }}>
         {props.alert && (
           <div
             className={`alert alert-${props.alert.type.toLowerCase()} alert-dismissible fade show`}

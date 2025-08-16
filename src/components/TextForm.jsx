@@ -65,7 +65,7 @@ const TextForm = (props) => {
       </style>
       <div className={`my-4 text-${props.mode === "light" ? "dark" : "light"}`}>
         <div className="container d-flex justify-content-between align-items-center">
-          <h3> {props.heading}</h3>
+          <h2> {props.heading}</h2>
           <div className="form-check form-switch">
             {props.mode === "light" ? (
               <i className="ri-moon-fill"></i>
@@ -82,7 +82,7 @@ const TextForm = (props) => {
           </div>
         </div>
         <textarea
-          className="form-control"
+          className="form-control my-2"
           id="textBox01"
           rows="10"
           value={text}
